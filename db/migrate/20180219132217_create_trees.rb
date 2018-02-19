@@ -5,7 +5,7 @@ class CreateTrees < ActiveRecord::Migration[5.1]
       t.integer :price
       t.string :photo
       t.integer :price_per_night
-      t.boolean :available
+      t.boolean :available, default: true
       t.integer :capacity
       t.references :user, foreign_key: true
 
