@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  location: MyString
+  price: 1
+  photo: MyString
+  price_per_night: 1
+  available: false
+  capacity: 1
+  user: one
+
+two:
+  location: MyString
+  price: 1
+  photo: MyString
+  price_per_night: 1
+  available: false
+  capacity: 1
+  user: two

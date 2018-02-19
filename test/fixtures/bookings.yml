@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_check_in: 2018-02-19
+  date_check_out: 2018-02-19
+  total_price: 1
+  user: one
+  tree: one
+
+two:
+  date_check_in: 2018-02-19
+  date_check_out: 2018-02-19
+  total_price: 1
+  user: two
+  tree: two

@@ -10,10 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180219121719) do
+ActiveRecord::Schema.define(version: 20180219132625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.date "date_check_in"
+    t.date "date_check_out"
+    t.integer "total_price"
+    t.bigint "user_id"
+    t.bigint "tree_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tree_id"], name: "index_bookings_on_tree_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "trees", force: :cascade do |t|
+    t.string "location"
+    t.integer "price"
+    t.string "photo"
+    t.integer "price_per_night"
+    t.boolean "available"
+    t.integer "capacity"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_trees_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,8 +53,14 @@ ActiveRecord::Schema.define(version: 20180219121719) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "phone_number"
+    t.string "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "trees"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "trees", "users"
 end
