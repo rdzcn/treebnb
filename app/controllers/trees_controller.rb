@@ -1,7 +1,12 @@
 class TreesController < ApplicationController
 before_action :set_tree, only: [ :show, :update, :destroy ]
+
   def index
-    @trees = Tree.all
+    if params[:search]
+      @trees = Tree.where(location: params[:search])
+    else
+      @trees = Tree.all
+    end
   end
 
   def show
