@@ -9,14 +9,12 @@ class TreesController < ApplicationController
       @trees = Tree.where(location: params[:search])
     else
       @trees = policy_scope(Tree)
-
     end
   end
 
   def show
     @trees = Tree.find(params[:id])
     authorize @trees
-
   end
 
   def new
