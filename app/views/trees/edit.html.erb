@@ -1,0 +1,16 @@
+<div class="text-center">
+  <h2>Change your tree</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <%=  simple_form_for @tree do |f|%>
+        <%= f.input :location, label: false, placeholder: "Enter location" %>
+        <%= f.input :capacity, label: false, placeholder: "How many people can stay here?" %>
+        <%= f.input :price_per_night, label: false, placeholder: "Price per night" %>
+
+        <%= f.button :submit, "Add your tree", class: "btn-success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
