@@ -3,3 +3,5 @@
  <% @trees.each do |tree| %>
 <p><%= link_to tree.location, tree_path(tree) %></p>
   <% end %>
+
+<%= link_to '+Add a new tree', new_tree_path %>
