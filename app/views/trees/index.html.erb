@@ -1,7 +1,22 @@
 <h1><%= params[:search] %></h1>
 
- <% @trees.each do |tree| %>
-<p><%= link_to tree.location, tree_path(tree) %></p>
-  <% end %>
+<div class="container">
+	<div class="row">
+		<% @trees.each do |tree| %>
+		<div class="col-xs-4">
+			<div class="cards">
+				<div class="card-image">
+						<%= tree.photo %>
+				</div>
+				<div class="card-footer">
+					<%= link_to tree.location, tree_path(tree) %>
+					<%= tree.price_per_night %>
+					<i class="fa fa-heart"></i>
+				</div>
+			</div>
+		</div>
+		<% end %>
+	</div>
+</div>
 
 <%= link_to '+Add a new tree', new_tree_path %>
