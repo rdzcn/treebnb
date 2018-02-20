@@ -6,13 +6,23 @@
 <p> add html to display this photo > </p>
 <p> </p>
 <% @tree.photos.each do |photo| %>
-	<%= cl_image_tag photo.path %>
+<%= cl_image_tag photo.path %>
 <% end %>
 
 
-<%= link_to "Delete", tree_path(@tree), method: :delete %>
-<%= link_to "Edit", edit_tree_path(@tree) %>
+<%= link_to tree_path(@tree), method: :delete do %>
+<%= icon('fas', 'trash') %> 
+<% end %> 
+
+<%= link_to edit_tree_path(@tree) do %>
+<%= icon('fas', 'edit') %>
+<% end %> 
+
+<%= link_to "/trees?search=#{@tree.location}" do %>
+<%= icon('fas', 'arrow-left') %>
+<% end %> 
 
 
-<%= link_to "Back", "/trees?search=#{@tree.location}" %>
+
+
 
