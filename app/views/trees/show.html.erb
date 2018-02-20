@@ -2,6 +2,12 @@
 <%= @tree.capacity %>
 <%= @tree.price_per_night %>
 
+
+<p> add html to display this photo > </p>
+<p> </p>
+<%= @tree.photo %>
+
+
 <%= link_to "Delete", tree_path(@tree), method: :delete %>
 <%= link_to "Edit", edit_tree_path(@tree) %>
 

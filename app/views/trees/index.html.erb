@@ -1,5 +1,9 @@
 <h1><%= params[:search] %></h1>
 
- <% @trees.each do |tree| %>
+<% @trees.each do |tree| %>
 <p><%= link_to tree.location, tree_path(tree) %></p>
-  <% end %>
+<% end %>
+
+
+
+<%= cl_image_tag("ed4r8a4zflsmpajfg0ej") %>
