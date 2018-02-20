@@ -5,7 +5,9 @@
 
 <p> add html to display this photo > </p>
 <p> </p>
-<%= @tree.photo %>
+<% @tree.photos.each do |photo| %>
+	<%= cl_image_tag photo.path %>
+<% end %>
 
 
 <%= link_to "Delete", tree_path(@tree), method: :delete %>
