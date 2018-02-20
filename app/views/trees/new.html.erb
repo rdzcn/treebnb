@@ -8,6 +8,8 @@
         <%= f.input :description, label: false, placeholder: "Enter description" %>
         <%= f.input :capacity, label: false, placeholder: "How many people can stay here?" %>
         <%= f.input :price_per_night, label: false, placeholder: "Price per night" %>
+        <%= f.input :photos, as: :attachinary %>
+      <!--   <%#= f.input :photo_cache, as: :hidden %> -->
 
         <%= f.button :submit, "Add your tree", class: "btn-success" %>
         <% end %>

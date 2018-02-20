@@ -8,6 +8,7 @@
   <%= action_cable_meta_tag %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+
 </head>
 <body>
   <%= render 'shared/navbar' %>
@@ -15,6 +16,7 @@
   <%= yield %>
   <%= render 'shared/footer' %>
   <%= javascript_include_tag 'application' %>
-  <%= javascript_pack_tag 'application' %>
+  <%= cloudinary_js_config %>
+  <%= javascript_pack_tag 'application' %> 
 </body>
 </html>

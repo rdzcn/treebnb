@@ -1,12 +1,12 @@
-<h1><%= params[:search] %></h1>
-
 <div class="container">
 	<div class="row">
 		<% @trees.each do |tree| %>
 		<div class="col-xs-4">
 			<div class="cards">
 				<div class="card-image">
-						<%= tree.photo %>
+					<% if tree.photos.first %>
+					<%= cl_image_tag tree.photos.first.path, { size: '300x300', crop: :fill } %>
+					<% end %>
 				</div>
 				<div class="card-footer">
 					<%= link_to tree.location, tree_path(tree) %>
