@@ -6,7 +6,10 @@
   height: 100px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
-  margin-left: -55px;
+  // margin-left: -55px;
+  bottom: 0;
+  position: fixed;
+  width: 100vw;
   height: 150px;
   li, li > a {
     font-size: 12px;
