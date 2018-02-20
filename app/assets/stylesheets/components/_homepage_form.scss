@@ -1,0 +1,35 @@
+.homepage-form {
+	box-shadow: 0 0 20px rgba(52,188,4,0.8);
+	border-radius: 2px;
+	padding: 10px 5px;
+	width: 1000px;
+	background: white;
+	#search {
+		border: none;
+		width: 550px;
+		&:focus {
+			border-color: white;
+			outline: 0;
+		}
+	}
+	form {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 3px;
+	}
+	.search-box {
+		text-align: left;
+	}
+	.search-button {
+		padding: 0 20px;
+		input[type="submit"] {
+			padding: 5px 20px;
+			background: rgba(52,188,4,0.6);
+			border-radius: 4px;
+			width: 150px;
+			border: none;
+			box-shadow: 0 0 10px rgba(52,188,4,0.2)
+		}
+	}
+}
