@@ -5,5 +5,11 @@
 <%= link_to "Delete", tree_path(@tree), method: :delete %>
 <%= link_to "Edit", edit_tree_path(@tree) %>
 
-<%= link_to "Back to Trees", trees_path %>
+<button onclick="goBack()">Go Back</button>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
 
