@@ -1,0 +1,14 @@
+<div class="text-center">
+  <h2>Edit your Profile</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <%=  simple_form_for @user do |f|%>
+        <%= f.input :name, label: false, placeholder: "Name" %>
+        <%= f.input :phone_number, label: false, placeholder: "Phone Number" %>
+        <%= f.button :submit, "Submit", class: "btn-success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
