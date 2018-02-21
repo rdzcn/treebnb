@@ -31,7 +31,9 @@ class TreesController < ApplicationController
         lng: @tree.longitude
       }]
     end
-
+    puts '============='
+    p @markers
+    
   end
 
   def new

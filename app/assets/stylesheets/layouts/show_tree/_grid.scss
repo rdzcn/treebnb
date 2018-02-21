@@ -1,9 +1,8 @@
 .grid {
 	display: grid;
 	margin-top: 40px;
-	grid-template-columns: 500px 1fr 1fr 1fr;
+	grid-template-columns: 500px 1fr 1fr;
 	grid-template-rows: 45% 45% 10%;
-	padding: 30px;
 }
 
 .map-section {
@@ -21,23 +20,24 @@
 }
 
 
+
 p {
-  font-weight: lighter;
+	font-weight: lighter;
 }
 h1, h2, h3 {
-  font-family: 'Varela Round', sans-serif;
-  font-weight: bold;
+	font-family: 'Varela Round', sans-serif;
+	font-weight: bold;
 }
 h1 {
-  font-size: 30px;
+	font-size: 30px;
 }
 h2 {
-  font-size: 25px;
-  margin-bottom: 20px;
+	font-size: 25px;
+	margin-bottom: 20px;
 }
 h3 {
-  font-size: 23px;
+	font-size: 23px;
 }
 .padded {
-  padding: 30px 0;
+	padding: 30px 0;
 }

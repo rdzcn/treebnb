@@ -8,13 +8,13 @@
  			></div>
  		</div>
 
- 		<% 3.times do %>
+ 		<% @tree.photos.each do |photo| %>
  		<div class="card-grid image-section">
- 			<% @tree.photos.each do |photo| %>
+ 			
  			<%= cl_image_tag photo.path, class: "grid-image" %>
- 			<% end %>
  		</div>
  		<% end %>
+ 		
 
  		<div class="card-grid descr-section">
  			<div class="card-content text-left">
