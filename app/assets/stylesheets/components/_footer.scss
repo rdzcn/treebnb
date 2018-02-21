@@ -7,10 +7,13 @@
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
   margin-left: -55px;
-  min-height: 120px;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
   li, li > a {
     font-size: 12px;
     color: rgba(150,150,150, 0.8);
+
   }
   .footer-icons {
     display: flex;
