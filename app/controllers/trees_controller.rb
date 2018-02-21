@@ -23,8 +23,15 @@ class TreesController < ApplicationController
   end
 
   def show
-    @trees = Tree.find(params[:id])
-    authorize @trees
+    @tree = Tree.find(params[:id])
+    authorize @tree
+    if @tree.latitude && @tree.longitude
+      @markers = [{
+        lat: @tree.latitude,
+        lng: @tree.longitude
+      }]
+    end
+
   end
 
   def new
