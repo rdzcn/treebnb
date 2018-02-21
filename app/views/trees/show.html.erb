@@ -1,54 +1,45 @@
+ <div class="container text-center">
+ 	<div class="grid">
 
+ 		<div class="card-grid profile-section">
+ 			<div class="card-content">
+ 				<img src="images/seb.jpeg" alt="" width="150" class="img-circle">
+ 				<p>place for a map</p>
+ 			</div>
+ 		</div>
 
-<div class="show-banner" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%), url('<%= cl_image_path @tree.photos.first.path, crop: : %>');">
-</div>
+ 		<% 3.times do %>
+ 		<div class="card-grid image-section">
+ 			<% @tree.photos.each do |photo| %>
+ 			<%= cl_image_tag photo.path, class: "grid-image" %>
+ 			<% end %>
+ 		</div>
+ 		<% end %>
 
+ 		<div class="card-grid descr-section">
+ 			<div class="card-content text-left">
+ 				<h3><%= @tree.description %> </h3>
+ 				<p> Location: <%= @tree.location %></p>
+ 				<p> Capacity: <%= @tree.capacity %></p>
+ 				<p> Price / night: <%= @tree.price_per_night %> corn-bits</p> 
 
+ 			</div>
+ 		</div>
 
-<div class="container">
-  <div class="row">
-
-    <div class="col-xs-6 col-xs-offset-1">
-      <%#= image_tag "https://kitt.lewagon.com/placeholder/users/#{owner}", class: "img-circle" %>
-      <h1>Location: <%= @tree.location %></h1>
-      <p>Capacity:<%= @tree.capacity %></p>
-      <p>Price per night: <%= @tree.price_per_night %></p>
-      <!--   <#% flat.rating.times do %> <i class="fa fa-star" style="color: #ffb400"> </i> <#% end %> -->
-    </div>
-
-
-
-    <div class="manage-tree-icons">
-      <%= link_to tree_path(@tree), method: :delete do %>
-      <%= icon('fas', 'trash') %>
-      <p>delete tree</p>
-      <% end %>
-
-      <%= link_to edit_tree_path(@tree) do %>
-      <%= icon('fas', 'edit') %>
-      <p>edit tree</p>
-      <% end %>
-
-      <%= link_to "/trees?search=#{@tree.location}" do %>
-      <%= icon('fas', 'arrow-left') %>
-      <p>go back</p>
-      <% end %>
-    </div>
-
-
-    <!-- lets render bokings here -->
-    <!-- <div class="col-xs-4">
-      <%#= render :"bookings/new" %>
-    </div> -->
-
-  </div>
-</div>
-
-<!-- a photo, but now we use banner, can we make carousel in banner like in airbnb? -->
-
-<%# @tree.photos.each do |photo| %>
-<%#= cl_image_tag photo.path %>
-<%# end %>
+ 		<div class="container-flex">
+ 			<%= link_to tree_path(@tree), method: :delete do %>
+ 			<%= icon('fas', 'trash') %> 
+ 			<% end %> 
+ 			<%= link_to edit_tree_path(@tree) do %>
+ 			<%= icon('fas', 'edit') %>
+ 			<% end %> 
+ 			<%= link_to "/trees?search=#{@tree.location}" do %>
+ 			<%= icon('fas', 'arrow-left') %>
+ 			<% end %> 
+ 		</div>
+ 		
+ 	</div>
+ </div>
 
 
 

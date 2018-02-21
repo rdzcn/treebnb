@@ -1,0 +1,27 @@
+.grid-image {
+	    max-height: 200px;
+	    max-width: 207px;
+}
+
+.card-grid {
+	background: white;
+	box-shadow: 0 0 10px rgba(0,0,0,0.3);
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	margin: 10px;
+}
+
+.btn-green {
+	background-color: #4CCAAC;
+	color: white;
+}
+
+.btn-green:hover {
+	background-color: #37B686;
+	color: white;
+}
+
+.profile-section {
+	padding: 150px;
+}
