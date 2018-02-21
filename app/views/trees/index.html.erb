@@ -1,30 +1,29 @@
-<div class="wrapper-trees">
-	<div class="container">
-		<div class="row">
-			<% @trees.each do |tree| %>
-				<div class="col-xs-12 col-sm-4">
-					<div class="cards">
-						<div class="card-image">
-							<%= link_to tree.location, tree_path(tree) %>
-							<% if tree.photos.first %>
-							<%= cl_image_tag(tree.photos.first.path, width: 300, height: 200) %>
-							<% end %>
-						</div>
-						<div class="card-footer">
-
-							<p>	<%= tree.price_per_night %> </p>
-							<i class="fa fa-heart"></i>
-						</div>
-					</div>
-				</div>
-			<% end %>
-		</div>
-	</div>
+<div class="container wrapper-trees">
 	<div class="row">
-		<div class="col-xs-6 col-xs-offset-3 text-center">
-			<button class="index-button text-center">
-				<%= link_to 'Add your tree', new_tree_path %>
-			</button>
-		</div>
-	</div>
+    <% @trees.each do |tree| %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="cards">
+        <div class="card-image">
+          <% if tree.photos.first %>
+
+          <div class="show-banner" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%), url('<%= cl_image_path tree.photos.first.path, crop: :fit %>');">
+          </div>
+
+
+
+          <% end %>
+
+        </div>
+        <div class="card-footer">
+         <%= link_to tree.location, tree_path(tree) %>
+         <p> <%= tree.price_per_night %> $ </p>
+         <p> <i class="fa fa-heart"></i></p>
+       </div>
+     </div>
+   </div>
+   <% end %>
+ </div>
+</div>
+<div class="flex-box-custom">
+  <%= link_to '+Add a new tree', new_tree_path, class: "btn btn-default btn-success" %>
 </div>
