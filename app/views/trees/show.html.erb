@@ -22,6 +22,7 @@
  				<p> Location: <%= @tree.location %></p>
  				<p> Capacity: <%= @tree.capacity %></p>
  				<p> Price / night: <%= @tree.price_per_night %> corn-bits</p> 
+ 				<%= link_to "book", new_tree_booking_path(@tree), class: "btn btn-success" %>
 
  			</div>
  		</div>
@@ -36,6 +37,7 @@
  			<%= link_to "/trees?search=#{@tree.location}" do %>
  			<%= icon('fas', 'arrow-left') %>
  			<% end %> 
+
  		</div>
  		
  	</div>
