@@ -1,22 +1,30 @@
-<div class="container">
-	<div class="row">
-		<% @trees.each do |tree| %>
-		<div class="col-xs-12 col-sm-4">
-			<div class="cards">
-				<div class="card-image">
-					<% if tree.photos.first %>
-					<%= cl_image_tag tree.photos.first.path, { size: '300x300', crop: :scale} %>
-					<% end %>
+<div class="wrapper-trees">
+	<div class="container">
+		<div class="row">
+			<% @trees.each do |tree| %>
+				<div class="col-xs-12 col-sm-4">
+					<div class="cards">
+						<div class="card-image">
+							<%= link_to tree.location, tree_path(tree) %>
+							<% if tree.photos.first %>
+							<%= cl_image_tag(tree.photos.first.path, width: 300, height: 200) %>
+							<% end %>
+						</div>
+						<div class="card-footer">
+
+							<p>	<%= tree.price_per_night %> </p>
+							<i class="fa fa-heart"></i>
+						</div>
+					</div>
 				</div>
-				<div class="card-footer">
-					<%= link_to tree.location, tree_path(tree) %>
-					<%= tree.price_per_night %>
-					<i class="fa fa-heart"></i>
-				</div>
-			</div>
+			<% end %>
 		</div>
-		<% end %>
+	</div>
+	<div class="row">
+		<div class="col-xs-6 col-xs-offset-3 text-center">
+			<button class="index-button text-center">
+				<%= link_to 'Add your tree', new_tree_path %>
+			</button>
+		</div>
 	</div>
 </div>
-
-<%= link_to '+Add a new tree', new_tree_path %>
