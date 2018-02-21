@@ -1,29 +1,62 @@
-<%= @tree.location %>
-<%= @tree.capacity %>
-<%= @tree.price_per_night %>
 
-
-<p> add html to display this photo > </p>
-<p> </p>
 <% @tree.photos.each do |photo| %>
-<%= cl_image_tag photo.path %>
+<div class="show-banner" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%), url('<%= cl_image_tag photo.path %>');">
+</div>
+
 <% end %>
 
+<div class="container">
+  <div class="row">
 
-<%= link_to tree_path(@tree), method: :delete do %>
-<%= icon('fas', 'trash') %> 
-<% end %> 
+    <div class="col-xs-6 col-xs-offset-1">
+      <%#= image_tag "https://kitt.lewagon.com/placeholder/users/#{owner}", class: "img-circle" %>
+      <h1>Location: <%= @tree.location %></h1>
+      <p>Capacity:<%= @tree.capacity %></p>
+      <p>Price per night: <%= @tree.price_per_night %></p>
+      <!--   <#% flat.rating.times do %> <i class="fa fa-star" style="color: #ffb400"> </i> <#% end %> -->
+    </div>
 
-<%= link_to edit_tree_path(@tree) do %>
-<%= icon('fas', 'edit') %>
-<% end %> 
+    <% @tree.photos.each do |photo| %>
+    <%= cl_image_tag photo.path %>
+    <% end %>
 
-<%= link_to "/trees?search=#{@tree.location}" do %>
-<%= icon('fas', 'arrow-left') %>
-<% end %> 
+    <div class="manage-tree-icons">
+      <%= link_to tree_path(@tree), method: :delete do %>
+      <%= icon('fas', 'trash') %>
+      <p>delete tree</p>
+      <% end %>
+
+      <%= link_to edit_tree_path(@tree) do %>
+      <%= icon('fas', 'edit') %>
+      <p>edit tree</p>
+      <% end %>
+
+      <%= link_to "/trees?search=#{@tree.location}" do %>
+      <%= icon('fas', 'arrow-left') %>
+      <p>go back</p>
+      <% end %>
+    </div>
+
+
+
+    <!-- <div class="col-xs-4">
+      <%#= render :"bookings/new" %>
+    </div> -->
+
+  </div>
+</div>
 
 
 
 
 
-<%= link_to "book", new_tree_booking_path(@tree) %>
+
+
+
+
+
+
+
+
+
+

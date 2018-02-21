@@ -1,4 +1,5 @@
 .cards {
+  text-decoration: none;
 	margin: 10px 10px;
 	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 	height: 400px;
@@ -11,4 +12,7 @@
 		background: yellow;
 		height: 100px;
 	}
+  a:hover {
+    text-decoration: none;
+  }
 }
