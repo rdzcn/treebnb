@@ -1,9 +1,9 @@
 
-<% @tree.photos.each do |photo| %>
-<div class="show-banner" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%), url('<%= cl_image_tag photo.path %>');">
+
+<div class="show-banner" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%), url('<%= cl_image_path @tree.photos.first.path, crop: : %>');">
 </div>
 
-<% end %>
+
 
 <div class="container">
   <div class="row">
@@ -16,9 +16,7 @@
       <!--   <#% flat.rating.times do %> <i class="fa fa-star" style="color: #ffb400"> </i> <#% end %> -->
     </div>
 
-    <% @tree.photos.each do |photo| %>
-    <%= cl_image_tag photo.path %>
-    <% end %>
+
 
     <div class="manage-tree-icons">
       <%= link_to tree_path(@tree), method: :delete do %>
@@ -38,7 +36,7 @@
     </div>
 
 
-
+    <!-- lets render bokings here -->
     <!-- <div class="col-xs-4">
       <%#= render :"bookings/new" %>
     </div> -->
@@ -46,6 +44,11 @@
   </div>
 </div>
 
+<!-- a photo, but now we use banner, can we make carousel in banner like in airbnb? -->
+
+<%# @tree.photos.each do |photo| %>
+<%#= cl_image_tag photo.path %>
+<%# end %>
 
 
 
