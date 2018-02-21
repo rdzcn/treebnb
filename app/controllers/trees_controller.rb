@@ -2,6 +2,16 @@ class TreesController < ApplicationController
   before_action :set_tree, only: [ :show, :update, :destroy ]
 
   def index
+    @trees = Tree.where.not(latitude: nil, longitude: nil)
+
+    @markers = @trees.map do |tree|
+      {
+        lat: tree.latitude,
+        lng: tree.longitude
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
+    end
+
     if params[:search] == ""
       @trees = policy_scope(Tree)
     elsif params[:search]
@@ -58,7 +68,7 @@ class TreesController < ApplicationController
   end
 
   def tree_params
-    params.require(:tree).permit(:location, :price_per_night, :avalable, :capacity, :description, photos: [])
+    params.require(:tree).permit(:location, :price_per_night, :avalable, :capacity, :description, :address, photos: [])
   end
 end
 

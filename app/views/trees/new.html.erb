@@ -5,7 +5,8 @@
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
         <%=  simple_form_for @tree do |f|%>
         <%= f.input :location, label: false, placeholder: "Enter location" %>
-        <%= f.input :description, label: false, placeholder: "Enter description" %>
+<!--         <%= f.input :address, label: false, placeholder: "Enter the address of your tree" %>
+ -->        <%= f.input :description, label: false, placeholder: "Enter description" %>
         <%= f.input :capacity, label: false, placeholder: "How many people can stay here?" %>
         <%= f.input :price_per_night, label: false, placeholder: "Price per night" %>
         <%= f.input :photos, as: :attachinary %>
