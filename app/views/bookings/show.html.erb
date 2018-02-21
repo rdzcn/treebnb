@@ -1,1 +1,12 @@
-<h1>hi</h1>
+<div class="text-center">
+  <h2>Your Reservation has been confirmed </h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <p>You will stay here for <strong><%= (@booking.date_check_out-@booking.date_check_in).to_i %></strong> days</p>
+        <p>The price per night in our tree is <strong> <%= @booking.tree.price_per_night %></strong> Ꜩ </p>
+        <p>Total price is <strong><%= (@booking.date_check_out-@booking.date_check_in).to_i * @booking.tree.price_per_night %> Ꜩ </strong> </p>
+      </div>
+    </div>
+  </div>
+</div>

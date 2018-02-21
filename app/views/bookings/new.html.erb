@@ -4,15 +4,15 @@
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
         <%= simple_form_for [@tree, @booking] do |f|%>
-        <%= f.input :date_check_in, as: :date, label: false, placeholder: "Check In Date" %>
-        <%= f.input :date_check_out, as: :date, label: false, placeholder: "Check Out Date" %>
-        <%= f.input :total_price %>
+        <%= f.input :date_check_in, as: :date, label: "Check In Date", placeholder: "Check In Date" %>
+        <%= f.input :date_check_out, as: :date, label: "Check Out Date", placeholder: "Check Out Date" %>
         <%= f.button :submit, "Book", class: "btn-success" %>
         <% end %>
       </div>
     </div>
   </div>
 </div>
+
 
 
 
