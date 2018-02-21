@@ -1,6 +1,13 @@
 .wrapper-trees {
 	min-height: 100vh;
 	background: rgba(255,221,0, 0.2);
+	.cards-container {
+		display: flex;
+		justify-content: flex-start;
+		border: 2px solid black;
+		align-items: center;
+		flex-wrap: wrap;
+	}
 	.index-button {
 		width: 300px;
 		margin-top: 100px;
@@ -8,7 +15,7 @@
 		border-radius: 4px;
 		line-height: 1.5;
 		font-size: 24px;
-		background: rgb(74,119,47);
+		background: rgba(74,119,47, 0.6);
 		padding: 10px 10px;
 		box-shadow: 0 0 10px rgba(255,221,0,0.5);
 		a {

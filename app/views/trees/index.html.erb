@@ -1,29 +1,28 @@
-<div class="container wrapper-trees">
-	<div class="row">
+<div class="container-fluid wrapper-trees">
+	<div class="row cards-container">
     <% @trees.each do |tree| %>
     <div class="col-xs-12 col-sm-4">
       <div class="cards">
-        <div class="card-image">
+
           <% if tree.photos.first %>
-
-          <div class="show-banner" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%), url('<%= cl_image_path tree.photos.first.path, crop: :fit %>');">
+          <div class="card-image" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%), url('<%= cl_image_path tree.photos.first.path, width: 300, height: 200, crop: :fit %>');">
           </div>
-
-
-
           <% end %>
+          <p><%= link_to tree.location, tree_path(tree) %></p>
 
-        </div>
         <div class="card-footer">
-         <%= link_to tree.location, tree_path(tree) %>
-         <p> <%= tree.price_per_night %> $ </p>
-         <p> <i class="fa fa-heart"></i></p>
+         <p> <%= tree.price_per_night %> Ꜩ </p>
+         <i class="fa fa-heart"></i>
        </div>
      </div>
    </div>
    <% end %>
  </div>
+ <div class="row">
+  <div class="col-xs-4 col-xs-offset-4 text-center">
+    <button class="index-button">
+      <%= link_to 'Add your tree', new_tree_path %>
+    </button>
+  </div>
 </div>
-<div class="flex-box-custom">
-  <%= link_to '+Add a new tree', new_tree_path, class: "btn btn-default btn-success" %>
 </div>
