@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem "geocoder"
+
 
 gem 'pundit'
 

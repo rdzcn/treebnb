@@ -1,3 +1,11 @@
+<div
+  id="map"
+  style="width: 400px;
+  height: 500px;"
+  data-markers="<%= @markers.to_json %>"
+></div>
+
+
 <div class="container-fluid wrapper-trees">
 	<div class="row cards-container">
     <% @trees.each do |tree| %>
