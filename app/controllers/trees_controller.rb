@@ -31,7 +31,7 @@ class TreesController < ApplicationController
         lng: @tree.longitude
       }]
     end
-
+    
   end
 
   def new
