@@ -1,0 +1,20 @@
+<h1><%= current_user.email %> </h1>
+<h1><%= current_user.name %> </h1>
+<h1><%= current_user.phone_number %> </h1>
+<ul>
+<h1>My Places</h1>
+<% current_user.trees.each do |tree| %>
+<li> <%= tree.description %></li>
+<% end %>
+</ul>
+<h1>My Bookings</h1>
+<% current_user.bookings.each do |tree| %>
+<li> Check in: <%= tree.date_check_in %>,check out: <%= tree.date_check_out %>, price: <%= tree.total_price %></li>
+<% end %>
+</ul>
+
+<%= link_to "Home Page", root_path %>
+<%= link_to "Edit Profile", dashboard_edit_path %>
+
+
+
