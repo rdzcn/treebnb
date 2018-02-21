@@ -15,6 +15,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @tree = Tree.find(params[:tree_id])
     @booking.tree = @tree
+    @booking.total_price = (@booking.date_check_out - @booking.date_check_in).to_i * @tree.price_per_night
     @booking.user = current_user
     authorize @booking
     if @booking.save
@@ -27,7 +28,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:date_check_in, :date_check_out, :total_price)
+    params.require(:booking).permit(:date_check_in, :date_check_out)
   end
 
 end
