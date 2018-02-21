@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>TODO</title>
-  <%= csrf_meta_tags %>
-  <%= action_cable_meta_tag %>
-  <%= stylesheet_link_tag 'application', media: 'all' %>
-  <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>TODO</title>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
 
-</head>
-<body>
-  <%= render 'shared/navbar' %>
- <%= render 'shared/flashes' %>
-  <%= yield %>
-  <%= render 'shared/footer' %>
+  </head>
+  <body>
+    <%= render 'shared/navbar' %>
+   <%= render 'shared/flashes' %>
+    <%= yield %>
+    <%= render 'shared/footer' %>
 
 
 
-  <%= javascript_include_tag 'application' %>
-  <%= cloudinary_js_config %>
-  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
-  <%= javascript_pack_tag 'application' %>
-  <%= javascript_pack_tag "map" %>
-</body>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_pack_tag 'application' %>
+    <%= cloudinary_js_config %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
+    <%= javascript_pack_tag "map" %>
+  </body>
 </html>
+

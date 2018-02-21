@@ -4,7 +4,7 @@ class Tree < ApplicationRecord
   has_many :users, through: :bookings
   validates :price_per_night, presence: true, numericality: true
   validates :capacity, presence: true, numericality: true
-  validates :location, presence: true
+  # validates :location, presence: true
   validates :address, presence: true
 
 
