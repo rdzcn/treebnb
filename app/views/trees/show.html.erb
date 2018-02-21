@@ -1,11 +1,13 @@
  <div class="container text-center">
  	<div class="grid">
 
- 		<div class="card-grid profile-section">
- 			<div class="card-content">
- 				<img src="images/seb.jpeg" alt="" width="150" class="img-circle">
- 				<p>place for a map</p>
- 			</div>
+ 		<div class="card-grid map-section">
+ 			<div
+ 			id="map"
+ 			style="width: 100%;
+ 			height: 600px;"
+ 			data-markers="<%= @markers.to_json %>"
+ 			></div>
  		</div>
 
  		<% 3.times do %>
@@ -27,7 +29,7 @@
  			</div>
  		</div>
 
- 		<div class="container-flex">
+ 		<div class="container-flex tools-section card-grid">
  			<%= link_to tree_path(@tree), method: :delete do %>
  			<%= icon('fas', 'trash') %> 
  			<% end %> 
