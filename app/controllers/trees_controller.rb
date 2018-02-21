@@ -2,9 +2,9 @@ class TreesController < ApplicationController
   before_action :set_tree, only: [ :show, :update, :destroy ]
 
   def index
-    @trees = Tree.where.not(latitude: nil, longitude: nil)
+    @map_trees = Tree.where.not(latitude: nil, longitude: nil)
 
-    @markers = @trees.map do |tree|
+    @markers = @map_trees.map do |tree|
       {
         lat: tree.latitude,
         lng: tree.longitude
