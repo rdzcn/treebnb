@@ -1,20 +1,76 @@
-<h1><%= current_user.email %> </h1>
-<h1><%= current_user.name %> </h1>
-<h1><%= current_user.phone_number %> </h1>
-<ul>
-<h1>My Places</h1>
-<% @trees.each do |tree| %>
-<li> <%= tree.description %></li>
+<div class="wrapper-dashboard">
+  <div class="dashboard-info">
+   <h1>Name: <%= current_user.name %> </h1>
+   <h3>Phone nnumber:<%= current_user.phone_number %> </h3>
+   <h4>email: <%= current_user.email %> </h4>
+ </div>
+ <div class="dashboard-bookings">
+  <div class="bookings-header">
+    <h1>My Bookings</h1>
+  </div>
+  <% current_user.bookings.each do |tree| %>
+  <div class="booking-result">
+    <div class="booking-header"> <%= link_to tree.tree.description, tree_booking_path(tree.tree, tree.tree.user) %></div>
+    <div class="bookings-results">
+     <p>Check in: <%= tree.date_check_in %></p>
+     <p>Check out: <%= tree.date_check_out %></p>
+   </p>price: <%= tree.total_price %></p>
+ </div>
+</div>
 <% end %>
-</ul>
-<h1>My Bookings</h1>
-<% current_user.bookings.each do |tree| %>
-<li> Check in: <%= tree.date_check_in %>,check out: <%= tree.date_check_out %>, price: <%= tree.total_price %></li>
-<% end %>
-</ul>
+</div>
+<div class="dashboard-trees">
+  <div class="trees-header">
+    <h1>My Trees</h1>
+  </div>
+  <% @trees.each do |tree| %>
+  <div class="trees-results">
+    <%= link_to tree.description, tree_path(tree) %>
+  </div>
+  <% end %>
+</div>
+<div class="dashboard-buttons">
+  <%= link_to "Edit Profile", dashboard_edit_path %>
+  <%= link_to "Search", root_path %>
+</div>
+</div>
 
-<%= link_to "Home Page", root_path %>
-<%= link_to "Edit Profile", dashboard_edit_path %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

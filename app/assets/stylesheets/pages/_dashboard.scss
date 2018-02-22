@@ -1,0 +1,72 @@
+.wrapper-dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 250px 3fr 100px;
+  grid-template-areas:
+  "info info"
+  "bookings trees"
+  "buttons buttons";
+}
+
+.dashboard-info {
+  grid-area: info;
+  border: 1px solid lightgray;
+  margin: 5px;
+  border-radius: 1%;
+}
+
+.dashboard-bookings {
+  grid-area: bookings;
+  display: subgrid;
+  grid-auto-flow: row;
+  grid-template-rows: 25% auto;
+  overflow: scroll;
+  margin: 2px;
+}
+
+.bookings-header {
+  border: 2px solid lightgray;
+  border-radius: 1%;
+  background-color: #F7F4F9;
+}
+
+.booking-header {
+  color: white;
+  background-color: #320949;
+}
+
+.bookings-results {
+  background-color: #F7F4F9;
+}
+
+.booking-result {
+  border: 2px solid lightgray;
+  border-radius: 1%;
+}
+
+.trees-header {
+  border: 2px solid lightgray;
+  border-radius: 1%;
+}
+
+.trees-results {
+  border: 2px solid lightgray;
+  border-radius: 1%;
+  background-color: #f2f1da;
+}
+
+.dashboard-trees {
+  grid-area: trees;
+  display: subgrid;
+  grid-auto-flow: row;
+  grid-template-rows: 25% auto;
+  margin: 2px;
+
+}
+
+.dashboard-buttons {
+  grid-area: buttons;
+  border: 2px solid lightgray;
+  margin: 5px;
+  border-radius: 5%;
+}
