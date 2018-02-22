@@ -1,36 +1,42 @@
-<div
+<div class="wrapper-index">
+  <div class="index-search">
+    <% @trees.where(location: params[:search]).each do |tree| %>
+    <div class="index-search-result">
+      <% if tree.photos.first %>
+      <div class="result-image" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%), url('<%= cl_image_path tree.photos.first.path, width: 300, height: 200, crop: :fit %>');">
+      </div>
+      <% end %>
+      <div class="result-title">
+        <p>Title comes here</p>
+      </div>
+      <div class="result-description">
+        <p><%= tree.description %></p>
+      </div>
+      <div class="result-avatar">
+        <img src="http://i.pravatar.cc/75" alt="">
+        <%#= cl_image_tag current_user.avatar, width: 100, height: 100, radius: :max %>
+      </div>
+      <div class="result-price">
+        <p><%= tree.price_per_night %>ꔠ</p>
+      </div>
+      <div class="result-review">
+        <p>9.2</p>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+  <div
   id="map"
   style="width: 400px;
   height: 500px;"
   data-markers="<%= @markers.to_json %>"
-></div>
+  ></div>
 
 
-<div class="container-fluid wrapper-trees">
-	<div class="row cards-container">
-    <% @trees.each do |tree| %>
-    <div class="col-xs-12 col-sm-4">
-      <div class="cards">
-
-          <% if tree.photos.first %>
-          <div class="card-image" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%), url('<%= cl_image_path tree.photos.first.path, width: 300, height: 200, crop: :fit %>');">
-          </div>
-          <% end %>
-          <p><%= link_to tree.location, tree_path(tree) %></p>
-
-        <div class="card-footer">
-         <p> <%= tree.price_per_night %> Ꜩ </p>
-         <i class="fa fa-heart"></i>
-       </div>
-     </div>
-   </div>
-   <% end %>
- </div>
- <div class="row">
-  <div class="col-xs-4 col-xs-offset-4 text-center">
-    <button class="index-button">
-      <%= link_to 'Add your tree', new_tree_path %>
-    </button>
-  </div>
 </div>
-</div>
+
+
+<button class="index-button">
+  <%= link_to 'Add your tree', new_tree_path %>
+</button>
