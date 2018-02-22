@@ -12,7 +12,7 @@
 
 <div class="wrapper-index">
   <div class="index-search">
-    <% @trees.where(location: params[:search]).each do |tree| %>
+    <% @trees.each do |tree| %>
     <div class="index-search-result">
       <% if tree.photos.first %>
       <div class="result-image" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%), url('<%= cl_image_path tree.photos.first.path, width: 300, height: 200, crop: :fit %>');">

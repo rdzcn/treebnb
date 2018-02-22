@@ -10,7 +10,7 @@ ruby '2.4.3'
 gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.1.5'
-gem 'redis', '~> 3.7'
+gem 'redis'
 gem 'devise'
 gem 'carrierwave', '~> 1.2'
 
@@ -30,7 +30,6 @@ gem 'coffee-rails'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem "geocoder"
 gem 'faker'
-# gem 'sqlite3'
 
 
 gem 'pundit'
@@ -45,8 +44,4 @@ group :development, :test do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'redis', '~> 3.7' # installed for map like airbnb
-
-
-
 end

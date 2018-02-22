@@ -5,14 +5,14 @@ class Tree < ApplicationRecord
   validates :price_per_night, presence: true, numericality: true
   validates :capacity, presence: true, numericality: true
   # validates :location, presence: true
-  # validates :address, presence: true ########################### I have lat & long #############################
+  validates :address, presence: true 
 
 
  # mount_uploader :photo, PhotoUploader
  has_attachments :photos, maximum: 3
 
- # geocoded_by :address
- # after_validation :geocode, if: :will_save_change_to_address?
+ geocoded_by :address
+ after_validation :geocode, if: :will_save_change_to_address?
 
 
   # search: min and max latidue & longitude 
