@@ -1,10 +1,12 @@
-<% content = open("https://api.darksky.net/forecast/fa5d94b5a83673b3ee1d802e80dfc7ee/#{@trees.last.latitude},#{@trees.last.longitude}?exclude=[currently,minutely,hourly,alerts,flags]&units=si").read %>
-<% results = JSON.parse(content) %>
+<% unless @trees.empty? %>
+  <% content = open("https://api.darksky.net/forecast/fa5d94b5a83673b3ee1d802e80dfc7ee/#{@trees.last.latitude},#{@trees.last.longitude}?exclude=[currently,minutely,hourly,alerts,flags]&units=si").read %>
+  <% results = JSON.parse(content) %>
 
-<% results["daily"]["data"].each do |item| %>
-<p><%= Time.at(item["time"]).day %> February</p>
-<p><%= item["summary"] %></p>
-<p><%= item["temperatureHigh"] %>°C / <%= item["temperatureLow"] %>°C</p>
+  <% results["daily"]["data"].each do |item| %>
+  <p><%= Time.at(item["time"]).day %> February</p>
+  <p><%= item["summary"] %></p>
+  <p><%= item["temperatureHigh"] %>°C / <%= item["temperatureLow"] %>°C</p>
+  <% end %>
 <% end %>
 
 <div class="homepage-form">
@@ -20,31 +22,8 @@
 </div>
 
 <div class="wrapper-index">
-  <div class="index-search">
-    <% @trees.each do |tree| %>
-    <div class="index-search-result">
-      <% if tree.photos.first %>
-      <div class="result-image" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%), url('<%= cl_image_path tree.photos.first.path, width: 300, height: 200, crop: :fit %>');">
-      </div>
-      <% end %>
-      <div class="result-title">
-        <p>Title comes here</p>
-      </div>
-      <div class="result-description">
-        <p><%= tree.description %></p>
-      </div>
-      <div class="result-avatar">
-        <img src="http://i.pravatar.cc/75" alt="">
-        <%#= cl_image_tag current_user.avatar, width: 100, height: 100, radius: :max %>
-      </div>
-      <div class="result-price">
-        <p><%= tree.price_per_night %>ꔠ</p>
-      </div>
-      <div class="result-review">
-        <p>9.2</p>
-      </div>
-    </div>
-    <% end %>
+  <div id="trees-list" class="index-search">
+    <%= render "trees_list", trees: @trees %>
   </div>
 
   <div
@@ -52,6 +31,8 @@
   style="width: 400px;
   height: 500px;"
   data-markers="<%= @markers.to_json %>"
+  data-trees-path="<%= trees_update_trees_path %>"
+  data-trees-filter="<%= @trees_filter %>"
   ></div>
 
 
