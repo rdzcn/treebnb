@@ -13,14 +13,14 @@
  			<%= cl_image_tag photo.path, class: "grid-image" %>
  		</div>
  		<% end %>
- 		
+
 
  		<div class="card-grid descr-section">
  			<div class="card-content text-left">
  				<h3><%= @tree.description %> </h3>
  				<p> Location: <%= @tree.location %></p>
  				<p> Capacity: <%= @tree.capacity %></p>
- 				<p> Price / night: <%= @tree.price_per_night %> corn-bits</p> 
+ 				<p> Price / night: <%= @tree.price_per_night %> corn-bits</p>
  				<%= link_to "book", new_tree_booking_path(@tree), class: "btn btn-success" %>
 
  			</div>
@@ -28,17 +28,17 @@
 
  		<div class="container-flex tools-section card-grid">
  			<%= link_to tree_path(@tree), method: :delete do %>
- 			<%= icon('fas', 'trash') %> <span class="text-small">delete this tree</span>
- 			<% end %> 
+ 			<%= icon('fas', 'trash') %> <span class="text-small">Delete</span>
+ 			<% end %>
  			<%= link_to edit_tree_path(@tree) do %>
- 			<%= icon('fas', 'edit') %> <span class="text-small">edit this tree</span>
- 			<% end %> 
+ 			<%= icon('fas', 'edit') %> <span class="text-small">Edit</span>
+ 			<% end %>
  			<%= link_to "/trees?search=#{@tree.location}" do %>
- 			<%= icon('fas', 'arrow-left') %> <span class="text-small">go back</span>
- 			<% end %> 
+ 			<%= icon('fas', 'arrow-left') %> <span class="text-small">Go back</span>
+ 			<% end %>
 
  		</div>
- 		
+
  	</div>
  </div>
 
