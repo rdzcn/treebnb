@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def dashboard
+    @trees = Tree.where(user_id: current_user.id)
     authorize current_user
   end
 
