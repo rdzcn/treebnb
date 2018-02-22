@@ -21,10 +21,10 @@ user_custom = User.create(email: "arda@gmail.com", password: "123456")
 
 p "creating 100 new trees"
 
-1.upto(10) do |i|
+1.upto(20) do |i|
 	Tree.create!(
 		address: Faker::Address.country,
-		description: Faker::Lorem.sentence,
+		description: Faker::OnePiece.location,
     # longitude: center_point[:lng] + rand(-10.00..10.00),
     # latitude: center_point[:lat] + rand(-10.00..10.00),
     price_per_night: rand(20..500),
