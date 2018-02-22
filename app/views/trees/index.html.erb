@@ -1,4 +1,13 @@
-<div class="homepage-form index-search">
+<% content = open("https://api.darksky.net/forecast/fa5d94b5a83673b3ee1d802e80dfc7ee/#{@trees.last.latitude},#{@trees.last.longitude}?exclude=[currently,minutely,hourly,alerts,flags]&units=si").read %>
+<% results = JSON.parse(content) %>
+
+<% results["daily"]["data"].each do |item| %>
+<p><%= Time.at(item["time"]).day %> February</p>
+<p><%= item["summary"] %></p>
+<p><%= item["temperatureHigh"] %>°C / <%= item["temperatureLow"] %>°C</p>
+<% end %>
+
+<div class="homepage-form">
   <form action="/trees">
     <div class="search-box">
       <label for="search"></label>
