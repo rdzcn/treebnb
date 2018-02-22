@@ -6,10 +6,8 @@ class TreesController < ApplicationController
     if params[:search] == ""
       @trees = policy_scope(Tree)
     elsif params[:search] && !Tree.where(address: params[:search]).empty?
-
       @trees = policy_scope(Tree)
       tree = Tree.where(address: params[:search]).first
-
       min_lat = tree.latitude - 2
       max_lat = tree.latitude + 2
       max_lng = tree.longitude + 2

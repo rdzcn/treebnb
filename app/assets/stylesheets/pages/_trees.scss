@@ -1,71 +1,129 @@
 .wrapper-index {
-	border: 1px solid red;
 	min-height: 100vh;
 	width: 1400px;
 	margin: 0 auto;
-	background: rgba(255,221,0, 0.2);
+	padding: 16px 16px;
 	display: grid;
-	grid-column-gap: 15px;
+	grid-column-gap: 10px;
 	grid-template-columns: 7fr 5fr;
 	justify-items: center;
+	#map {
+		box-shadow: 0 0 10px rgba(0,0,0,0.3);
+	}
 	.index-search {
-		border: 1px solid black;
-		justify-self: stretch;
+		grid-row-gap: 10px;
 		display: subgrid;
-		justify-items: center;
-		grid-auto-flow: row;
+		justify-self: stretch;
 		.index-search-result {
-			border: 1px solid blue;
-			height: 200px;
+			border-radius: 3px;
+			display: grid;
+			grid-column-gap: 16px;
+			padding: 16px 16px;
+			box-shadow: 0 0 5px rgba(0,0,0,0.3);
+			height: 220px;
+			margin-bottom: 20px;
 			justify-self: stretch;
 			justify-items: stretch;
-			display: grid;
 			grid-template-columns: 1fr 1fr 2fr 2fr 1fr;
 			grid-template-rows: 1fr 1fr 1fr;
 			grid-template-areas:
 			"image image title title avatar"
 			"image image description description description "
 			"image image price . review";
+			.result-avatar {
+				justify-self: center;
+				align-self: center;
+				img {
+					border-radius: 50%;
+					box-shadow: 0 0 5px rgba(0,0,0,0.3);
+				}
+			}
+			.result-title {
+				align-self: center;
+				a {
+					color: black;
+					opacity: 0.7;
+					font-weight: bold;
+					&:hover {
+						color: rgb(74,119,47);
+					}
+				}
+			}
+			.result-description {
+				align-self: start;
+			}
+			.result-review {
+				justify-self: center;
+				align-self: center;
+				border-radius: 50%;
+				p {
+					font-size: 24px;
+					font-weight: bold;
+					padding: 16px 16px;
+				}
+			}
+			.result-price {
+				align-self: center;
+				p {
+					font-size: 24px;
+					font-weight: bold;
+				}
+			}
 		}
 	}
 }
 
 .index-button {
-		width: 300px;
-		margin-top: 100px;
-		border: none;
-		border-radius: 4px;
-		line-height: 1.5;
-		font-size: 24px;
-		background: rgba(74,119,47, 0.6);
-		padding: 10px 10px;
-		box-shadow: 0 0 10px rgba(255,221,0,0.5);
-		a {
-			text-decoration: none;
-			color: rgb(255,221,0);
-			opacity: 0.7;
-			&:hover {
-				opacity: 1;
-			}
-		}
+	display: block;
+	width: 300px;
+	margin: 100px auto;
+	border: none;
+	border-radius: 4px;
+	line-height: 1.5;
+	font-size: 24px;
+	background: rgba(74,119,47, 0.6);
+	padding: 10px 10px;
+	a {
+	  text-decoration: none;
+		color: white;
 	}
+}
 
-	.result-image {
-		grid-area: image;
-	}
-	.result-title {
-		grid-area: title;
-	}
-	.result-description {
-		grid-area: description;
-	}
-	.result-avatar {
-		grid-area: avatar;
-	}
-	.result-price {
-		grid-area: price;
-	}
-	.result-review {
-		grid-area: review;
-	}
+.result-image {
+	grid-area: image;
+}
+.result-title {
+	grid-area: title;
+}
+.result-description {
+	grid-area: description;
+}
+.result-avatar {
+	grid-area: avatar;
+}
+.result-price {
+	grid-area: price;
+}
+.result-review {
+	grid-area: review;
+}
+
+.wrapper-weather {
+	border: 1px solid black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  height: 265px;
+  ul {
+    display: flex;
+    .weather-box {
+       display:block;
+       width:300px;
+       height:170px;
+       padding: 5px;
+       border: 0.5px solid lightgray;
+       margin: 1px;
+    }
+  }
+}
 

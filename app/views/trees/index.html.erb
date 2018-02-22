@@ -1,3 +1,4 @@
+
 <% unless @trees.empty? %>
   <% content = open("https://api.darksky.net/forecast/fa5d94b5a83673b3ee1d802e80dfc7ee/#{@trees.last.latitude},#{@trees.last.longitude}?exclude=[currently,minutely,hourly,alerts,flags]&units=si").read %>
   <% results = JSON.parse(content) %>
@@ -8,20 +9,48 @@
   <p><%= item["temperatureHigh"] %>°C / <%= item["temperatureLow"] %>°C</p>
   <% end %>
 <% end %>
+  
+<div class="wrapper-weather">
+  <ul style='list-unstyled'>
+    <% results["daily"]["data"][0..3].each do |item| %>
+    <li class="weather-box">
+      <p>
+        <%= Time.at(item["time"]).day %>.<%= Time.at(item["time"]).month %>.<%= Time.at(item["time"]).year %>
+      </p>
+      <% if item["icon"] == "partly-cloudy-day" %>
+        <%= image_tag "partly_cloudy.png", height: 35  %>
+        <% elsif item["icon"] == "partly-cloudy-night" %>
+        <%= image_tag "partly_cloudy.png", height: 35  %>
+      <% elsif item["icon"] == "clear-day" %>
+        <%= image_tag "clear.png", height: 35  %>
+      <% else %>
+        <%= image_tag "snow.png", height: 35  %>
+      <% end %>
+      <p><%= item["summary"] %></p>
+      <p><%= item["temperatureHigh"] %>°C / <%= item["temperatureLow"] %>°C</p>
+    </li>
+    <% end %>
+  </ul>
+ </div>
 
-<div class="homepage-form">
-  <form action="/trees">
-    <div class="search-box">
-      <label for="search"></label>
-      <input type="text" id="search" placeholder="Enter your dream city" name="search">
-    </div>
-    <div class="search-button">
-      <input type="submit" value="Search">
-    </div>
-  </form>
-</div>
+   <div class="homepage-form" style="margin-left: 150px;">
+    <form action="/trees">
+      <i class="fa fa-search"></i>
+      <div class="search-box">
+        <label for="search"></label>
+        <input type="text" id="search" placeholder="Enter your dream city" name="search">
+      </div>
+      <div class="search-button">
+        <input type="submit" value="Search">
+      </div>
+    </form>
+  </div>
+
+
+
 
 <div class="wrapper-index">
+
   <div id="trees-list" class="index-search">
     <%= render "trees_list", trees: @trees %>
   </div>
@@ -35,6 +64,34 @@
   data-trees-filter="<%= @trees_filter %>"
   ></div>
 
+  <div class="index-search">
+    <% @trees.each do |tree| %>
+    <div class="index-search-result">
+      <% if tree.photos.first %>
+      <div class="result-image" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%), url('<%= cl_image_path tree.photos.first.path, width: 300, height: 200, crop: :fit %>');">
+      </div>
+      <% end %>
+      <div class="result-title">
+        <p><%= link_to "Title comes here", tree_path(tree) %></p>
+      </div>
+      <div class="result-description">
+        <p><%= tree.description %></p>
+      </div>
+      <div class="result-avatar">
+        <img src="http://i.pravatar.cc/75" alt="">
+        <%#= cl_image_tag current_user.avatar, width: 100, height: 100, radius: :max %>
+      </div>
+      <div class="result-price">
+        <p><%= tree.price_per_night %>ꔠ</p>
+      </div>
+      <div class="result-review">
+        <p> <% a=rand()+(6..9).to_a.sample %>
+          <%= a.round(1) %> *
+        </p>
+      </div>
+    </div>
+    <% end %>
+  </div>
 
 </div>
 
