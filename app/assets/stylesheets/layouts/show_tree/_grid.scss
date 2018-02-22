@@ -1,23 +1,4 @@
-.grid {
-	display: grid;
-	margin-top: 40px;
-	grid-template-columns: 500px 1fr 1fr;
-	grid-template-rows: 45% 45% 10%;
-}
-
-.map-section {
-	grid-row: 1 / span 2;
-	grid-column: 1 / span 1;
-}
-
-.descr-section {
-	grid-row: 2 / span 1;
-	grid-column: 2 / span 3;
-}
-.tools-section {
-	grid-row: 3 / span 1;
-	grid-column: 1 / span 4;
-}
+/* ********** STYLE *********** */
 
 
 
@@ -38,6 +19,87 @@ h2 {
 h3 {
 	font-size: 23px;
 }
-.padded {
-	padding: 30px 0;
+
+.text-small {
+	font-size: 50%;
 }
+
+
+
+/* ********** GRID *********** */
+
+
+
+.grid {
+	display: grid;
+	margin-top: 40px;
+	grid-template-columns: 500px 1fr 1fr 1fr ;
+	grid-template-rows: 45% 45% 10%;
+}
+
+.map-section {
+	grid-row: 1 / span 2;
+	grid-column: 1 / span 1;
+}
+
+.descr-section {
+	grid-row: 2 / span 1;
+	grid-column: 2 / span 3;
+	padding: 20px;
+}
+.tools-section {
+	grid-row: 3 / span 1;
+	grid-column: 1 / span 4;
+	font-size: 200%;
+}
+
+.image-section {
+
+}
+
+.grid-image {
+	    // max-height: 200px;
+	    max-width: 230px;
+	}
+
+	.card-grid {
+		background: white;
+		box-shadow: 0 0 10px rgba(0,0,0,0.3);
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		margin: 10px;
+	}
+
+
+	@media(max-width: 1000px) {
+	/*if you change max width to smaller - remember to change .grid-image properites*/
+
+	.grid {
+		display: grid;
+		margin-top: 40px;
+		grid-template-columns: 100%;
+	// grid-template-rows: 50% 1fr 1fr 1fr 1fr 1fr;
+}
+
+.map-section {
+	grid-row: 1 / span 2;
+	grid-column-end: 1;
+}
+
+.descr-section {
+	grid-row: 7 / span 1;
+	grid-column-end: 1;
+}
+.tools-section {
+	grid-row: 8 / span 1;
+	grid-column-end: 1;
+}
+
+.grid-image {
+	// min-height: 300px; 
+	min-width: 100%;
+}
+
+}
+

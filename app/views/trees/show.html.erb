@@ -10,7 +10,6 @@
 
  		<% @tree.photos.each do |photo| %>
  		<div class="card-grid image-section">
- 			
  			<%= cl_image_tag photo.path, class: "grid-image" %>
  		</div>
  		<% end %>
@@ -29,13 +28,13 @@
 
  		<div class="container-flex tools-section card-grid">
  			<%= link_to tree_path(@tree), method: :delete do %>
- 			<%= icon('fas', 'trash') %> 
+ 			<%= icon('fas', 'trash') %> <span class="text-small">delete this tree</span>
  			<% end %> 
  			<%= link_to edit_tree_path(@tree) do %>
- 			<%= icon('fas', 'edit') %>
+ 			<%= icon('fas', 'edit') %> <span class="text-small">edit this tree</span>
  			<% end %> 
  			<%= link_to "/trees?search=#{@tree.location}" do %>
- 			<%= icon('fas', 'arrow-left') %>
+ 			<%= icon('fas', 'arrow-left') %> <span class="text-small">go back</span>
  			<% end %> 
 
  		</div>
