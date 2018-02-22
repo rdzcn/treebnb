@@ -1,5 +1,9 @@
 import GMaps from 'gmaps/gmaps.js';
 import { autocomplete } from '../components/autocomplete';
+import { autocompleteCreateTree } from '../components/autocomplete';
+import { autocompleteAddressTree } from '../components/autocomplete';
+
+
 
 
 const mapElement = document.getElementById('map');
@@ -20,3 +24,5 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
 }
 
 autocomplete();
+autocompleteCreateTree();
+autocompleteAddressTree();
