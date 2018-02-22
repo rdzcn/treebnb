@@ -1,6 +1,11 @@
 source 'https://rubygems.org'
 ruby '2.4.3'
 
+# git_source(:github) do |repo_name|
+#   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+#   "https://github.com/#{repo_name}.git"
+# end
+
 
 gem 'pg', '~> 0.21'
 gem 'puma'
@@ -24,6 +29,7 @@ gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem "geocoder"
+gem 'faker'
 
 
 gem 'pundit'
