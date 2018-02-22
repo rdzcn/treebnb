@@ -3,7 +3,7 @@
 <h1><%= current_user.phone_number %> </h1>
 <ul>
 <h1>My Places</h1>
-<% current_user.trees.each do |tree| %>
+<% @trees.each do |tree| %>
 <li> <%= tree.description %></li>
 <% end %>
 </ul>
