@@ -1,3 +1,15 @@
+<div class="homepage-form index-search">
+  <form action="/trees">
+    <div class="search-box">
+      <label for="search"></label>
+      <input type="text" id="search" placeholder="Enter your dream city" name="search">
+    </div>
+    <div class="search-button">
+      <input type="submit" value="Search">
+    </div>
+  </form>
+</div>
+
 <div class="wrapper-index">
   <div class="index-search">
     <% @trees.where(location: params[:search]).each do |tree| %>
