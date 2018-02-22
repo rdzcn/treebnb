@@ -1,5 +1,15 @@
-<% content = open("https://api.darksky.net/forecast/fa5d94b5a83673b3ee1d802e80dfc7ee/#{@trees.last.latitude},#{@trees.last.longitude}?exclude=[currently,minutely,hourly,alerts,flags]&units=si").read %>
-<% results = JSON.parse(content) %>
+
+<% unless @trees.empty? %>
+  <% content = open("https://api.darksky.net/forecast/fa5d94b5a83673b3ee1d802e80dfc7ee/#{@trees.last.latitude},#{@trees.last.longitude}?exclude=[currently,minutely,hourly,alerts,flags]&units=si").read %>
+  <% results = JSON.parse(content) %>
+
+  <% results["daily"]["data"].each do |item| %>
+  <p><%= Time.at(item["time"]).day %> February</p>
+  <p><%= item["summary"] %></p>
+  <p><%= item["temperatureHigh"] %>°C / <%= item["temperatureLow"] %>°C</p>
+  <% end %>
+<% end %>
+  
 <div class="wrapper-weather">
   <ul style='list-unstyled'>
     <% results["daily"]["data"][0..3].each do |item| %>
@@ -21,7 +31,9 @@
     </li>
     <% end %>
   </ul>
-  <div class="homepage-form" style="margin-left: 150px;">
+ </div>
+
+   <div class="homepage-form" style="margin-left: 150px;">
     <form action="/trees">
       <i class="fa fa-search"></i>
       <div class="search-box">
@@ -33,11 +45,25 @@
       </div>
     </form>
   </div>
-</div>
+
 
 
 
 <div class="wrapper-index">
+
+  <div id="trees-list" class="index-search">
+    <%= render "trees_list", trees: @trees %>
+  </div>
+
+  <div
+  id="map"
+  style="width: 400px;
+  height: 500px;"
+  data-markers="<%= @markers.to_json %>"
+  data-trees-path="<%= trees_update_trees_path %>"
+  data-trees-filter="<%= @trees_filter %>"
+  ></div>
+
   <div class="index-search">
     <% @trees.each do |tree| %>
     <div class="index-search-result">
@@ -66,10 +92,6 @@
     </div>
     <% end %>
   </div>
-
-  <div id="map" style="width: 550px; height: 700px; data-markers="<%= @markers.to_json %>">
-  </div>
-
 
 </div>
 
