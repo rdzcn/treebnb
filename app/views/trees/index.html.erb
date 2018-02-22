@@ -2,13 +2,16 @@
 <% results = JSON.parse(content) %>
 
 <% results["daily"]["data"].each do |item| %>
-<p><%= Time.at(item["time"]).day %> February</p>
-<p><%= item["summary"] %></p>
-<p><%= item["temperatureHigh"] %>°C / <%= item["temperatureLow"] %>°C</p>
+<div class="wrapper-weather">
+  <p><%= Time.at(item["time"]).day %> February</p>
+  <p><%= item["summary"] %></p>
+  <p><%= item["temperatureHigh"] %>°C / <%= item["temperatureLow"] %>°C</p>
+</div>
 <% end %>
 
 <div class="homepage-form">
   <form action="/trees">
+    <i class="fa fa-search"></i>
     <div class="search-box">
       <label for="search"></label>
       <input type="text" id="search" placeholder="Enter your dream city" name="search">
@@ -28,7 +31,7 @@
       </div>
       <% end %>
       <div class="result-title">
-        <p>Title comes here</p>
+        <p><%= link_to "Title comes here", tree_path(tree) %></p>
       </div>
       <div class="result-description">
         <p><%= tree.description %></p>
