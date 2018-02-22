@@ -9,24 +9,24 @@
     <h1>My Bookings</h1>
   </div>
   <% current_user.bookings.each do |tree| %>
-  <div class="booking-result">
-    <div class="booking-header"> <%= link_to tree.tree.description, tree_booking_path(tree.tree, tree.tree.user) %></div>
-    <div class="bookings-results">
-     <p>Check in: <%= tree.date_check_in %></p>
-     <p>Check out: <%= tree.date_check_out %></p>
-   </p>price: <%= tree.total_price %></p>
- </div>
-</div>
-<% end %>
+  <div class="panel panel-default">
+    <div class="panel-heading style="height: 46px;"><%= link_to tree.tree.description, tree_booking_path(tree.tree, tree.tree.user) %></div>
+    <div class="panel-body" style="height: 55px;">
+      <p>Check in: <%= tree.date_check_in %> , Check out: <%= tree.date_check_out %>. Total price: <%= tree.total_price %></p>  </div>
+  </div>
+  <% end %>
 </div>
 <div class="dashboard-trees">
   <div class="trees-header">
     <h1>My Trees</h1>
   </div>
   <% @trees.each do |tree| %>
-  <div class="trees-results">
-    <%= link_to tree.description, tree_path(tree) %>
+  <div class="panel panel-default">
+  <div class="panel-heading" style="height: 46px;"><%= link_to tree.description, tree_path(tree) %></div>
+  <div class="panel-body" style="height: 55px;">
+    Panel content
   </div>
+</div>
   <% end %>
 </div>
 <div class="dashboard-buttons">
@@ -34,8 +34,6 @@
   <%= link_to "Search", root_path %>
 </div>
 </div>
-
-
 
 
 
