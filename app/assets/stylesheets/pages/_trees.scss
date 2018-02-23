@@ -37,7 +37,7 @@
                 justify-self: center;
                 align-self: center;
                 img {
-                    border-radius: 50%;
+                    border-radius: 18%;
                     box-shadow: 0 0 5px rgba(0,0,0,0.3);
                 }
             }
@@ -92,6 +92,7 @@
 }
 .result-image {
     grid-area: image;
+    border-radius: 3%;
 }
 .result-title {
     grid-area: title;
