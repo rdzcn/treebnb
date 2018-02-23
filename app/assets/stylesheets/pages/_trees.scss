@@ -28,9 +28,10 @@
             justify-self: stretch;
             justify-items: stretch;
             grid-template-columns: 1fr 1fr 2fr 2fr 1fr;
-            grid-template-rows: 1fr 1fr 1fr ;
+            grid-template-rows: 1fr 1fr 1fr  ;
             grid-template-areas:
             "image image title title avatar"
+            "image image address address avatar"
             "image image description description description "
             "image image price . review";
             .result-avatar {
@@ -68,7 +69,7 @@
             .result-price {
                 align-self: center;
                 p {
-                    font-size: 24px;
+                    font-size: 20px;
                     font-weight: bold;
                 }
             }
@@ -101,6 +102,9 @@
 }
 .result-avatar {
     grid-area: avatar;
+}
+.result-address {
+    grid-area: address;
 }
 .result-price {
     grid-area: price;
