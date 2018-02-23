@@ -16,9 +16,11 @@
 
 
  		<div class="card-grid descr-section">
- 			<div class="card-content text-left">
- 				<h3><%= @tree.description %> </h3>
- 				<p> Location: <%= @tree.address %></p>
+ 			<div class="card-content">
+ 				<h3><%= @tree.title %> </h3>
+ 				<p> Location: <%= @tree.location %></p>
+        <p> Address: <%= @tree.address %></p>
+        <p><%= @tree.description %></p>
  				<p> Capacity: <%= @tree.capacity %> <i> <small> squirrels </small> </i></p>
  				<p> Price / night: <%= @tree.price_per_night %><i> <small> <%= image_tag("acorn.svg", height: 20) %></small>  </i></p>
  				<%= link_to "book", new_tree_booking_path(@tree), class: "btn btn-success" %>
