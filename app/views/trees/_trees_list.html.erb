@@ -15,7 +15,7 @@
         <%#= cl_image_tag current_user.avatar, width: 100, height: 100, radius: :max %>
       </div>
       <div class="result-price">
-        <p>total price <%= tree.price_per_night %>ꔠ</p>
+        <p>price: <%= tree.price_per_night %>ꔠ</p>
       </div>
       <div class="result-review">
         <p> <% a=rand()+(6..9).to_a.sample %>
