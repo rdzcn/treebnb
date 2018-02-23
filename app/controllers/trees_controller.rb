@@ -28,7 +28,7 @@ class TreesController < ApplicationController
     if params[:search]
       @trees_filter = params[:search]
     else
-      @trees_filter = "" 
+      @trees_filter = ""
     end
   end
 
@@ -36,7 +36,7 @@ class TreesController < ApplicationController
     skip_authorization
     # @trees = Tree.last(10)
     @trees = Tree.search(min_lat: params["minLat"].to_f - 2, max_lat: params["maxLat"].to_f + 2, min_lng: params["minLng"].to_f - 2, max_lng: params["maxLng"].to_f + 2)
-    
+
     respond_to do |format|
       format.html { render 'trees/index' }
       format.js
@@ -99,7 +99,7 @@ class TreesController < ApplicationController
       end
 
       def tree_params
-        params.require(:tree).permit(:location, :price_per_night, :avalable, :capacity, :description, :address, photos: [])
+        params.require(:tree).permit(:location, :price_per_night, :avalable, :capacity, :description, :title, :address, photos: [])
       end
 
     end
