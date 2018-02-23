@@ -46,6 +46,7 @@
                 align-self: center;
                 a {
                     color: black;
+                    font-size:25px;
                     opacity: 0.7;
                     font-weight: bold;
                     &:hover {
@@ -55,6 +56,10 @@
             }
             .result-description {
                 align-self: start;
+                a {
+                  padding-bottom: 5px;
+
+                }
             }
             .result-review {
                 justify-self: center;
@@ -69,8 +74,8 @@
             .result-price {
                 align-self: center;
                 p {
-                    font-size: 20px;
-                    font-weight: bold;
+                    font-size: 18px;
+                    // font-weight: bold;
                 }
             }
         }
@@ -94,18 +99,21 @@
 .result-image {
     grid-area: image;
     border-radius: 3%;
+    max-height:190px;
 }
 .result-title {
     grid-area: title;
 }
 .result-description {
     grid-area: description;
+    font-size: 15px;
 }
 .result-avatar {
     grid-area: avatar;
 }
 .result-address {
     grid-area: address;
+    font-size: 20px;
 }
 .result-price {
     grid-area: price;
