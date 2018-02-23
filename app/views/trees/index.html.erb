@@ -16,8 +16,8 @@
       <% else %>
         <%= image_tag "snow.png", height: 35  %>
       <% end %>
+      <p><%= item["temperatureHigh"].round(1) %>°C / <%= item["temperatureLow"].round(1) %>°C</p>
       <p><%= item["summary"] %></p>
-      <p><%= item["temperatureHigh"] %>°C / <%= item["temperatureLow"] %>°C</p>
     </li>
     <% end %>
   </ul>
