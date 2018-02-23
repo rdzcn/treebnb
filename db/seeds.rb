@@ -18,13 +18,19 @@ User.destroy_all
 p "creating a user"
 
 user_custom = User.create(email: "arda@gmail.com", password: "123456")
+cities = ["Rudi-Dutschke-Straße, Berlin", "Fritz-Schloß-Park, Berlin", "Mauerpark, Berlin"]
+# cities = %w(Berlin Paris Havana Oslo London Shanghai Moscow Toronto York Madrit Amsterdam Prague)
 
 p "creating 100 new trees"
 
+
+
+
+
 1.upto(20) do |i|
 	Tree.create!(
-		address: Faker::Address.country,
-		description: Faker::OnePiece.location,
+		address: cities.sample,
+		description: Faker::Commerce.department,
     # longitude: center_point[:lng] + rand(-10.00..10.00),
     # latitude: center_point[:lat] + rand(-10.00..10.00),
     price_per_night: rand(20..500),
