@@ -4,6 +4,7 @@
 <% results = JSON.parse(content) %>
 <h5>The weather in <%= params[:search] %></h5>
 <div class="wrapper-weather">
+  <!-- comment la -->
   <ul style='list-unstyled'>
     <% results["daily"]["data"][0..3].each do |item| %>
     <li class="weather-box">
