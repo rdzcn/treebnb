@@ -1,29 +1,36 @@
 <% trees.each do |tree| %>
-  <div class="index-search-result">
-      <% if tree.photos.first %>
-      <div class="result-image" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%), url('<%= cl_image_path tree.photos.first.path, width: 200, height: 150, crop: :fit %>');">
-      </div>
-      <% end %>
-      <div class="result-title">
-        <p><%= link_to "#{tree.title}", tree_path(tree) %></p>
-      </div>
-      <div class="result-location">
-        <p><%= tree.location.truncate(25) %></p>
-      </div>
-      <div class="result-description">
-        <p><%= tree.description.truncate(140) %></p>
-      </div>
-      <div class="result-avatar">
-        <img src="http://i.pravatar.cc/75?u=<%= rand(20..500) %>" alt="">
-        <%#= cl_image_tag current_user.avatar, width: 100, height: 100, radius: :max %>
-      </div>
-      <div class="result-price">
-        <p>Price/night <%= tree.price_per_night %> <%= image_tag("acorn.svg", height: 15) %></p>
-      </div>
-      <div class="result-review">
-        <p> <% a=rand()+(6..9).to_a.sample %>
-          <%= a.round(1) %> *
-        </p>
-      </div>
-    </div>
-    <% end %>
+<div class="index-search-result">
+  <% if tree.photos.first %>
+  <div class="result-image" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%), url('<%= cl_image_path tree.photos.first.path, width: 200, height: 150, crop: :fit %>');">
+  </div>
+  <% end %>
+  <div class="result-title">
+    <p><%= link_to "#{tree.title}", tree_path(tree) %></p>
+  </div>
+  <div class="result-location">
+    <p><%= tree.location.truncate(25) %></p>
+  </div>
+  <div class="result-description">
+    <p><%= tree.description.truncate(140) %></p>
+  </div>
+
+
+  <%# pictures = [image_tag "1.jpg", image_tag "2.jpg", image_tag "3.jpg", image_tag "4.jpg", image_tag "5.jpg"] %>
+<% pictures = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"] %>
+
+  <div class="result-avatar">
+   <%#= pictures.sample %>
+   <%= image_tag(pictures.sample, height: 100, width: 100) %>
+    <!-- <img src="http://i.pravatar.cc/75?u=<%= rand(20..500) %>" alt=""> -->
+    <%#= cl_image_tag current_user.avatar, width: 100, height: 100, radius: :max %>
+  </div>
+  <div class="result-price">
+    <p>Price/night <%= tree.price_per_night %> <%= image_tag("acorn.svg", height: 15) %></p>
+  </div>
+  <div class="result-review">
+    <p> <% a=rand()+(6..9).to_a.sample %>
+      <%= a.round(1) %> *
+    </p>
+  </div>
+</div>
+<% end %>
