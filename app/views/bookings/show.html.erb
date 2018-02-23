@@ -3,11 +3,13 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <p>You will stay here for <strong><%= (@booking.date_check_out-@booking.date_check_in).to_i %></strong> days</p>
+        <p>You will stay in <%= @booking.tree.title %> for <strong><%= (@booking.date_check_out-@booking.date_check_in).to_i %></strong> days</p>
         <p>The price per night in our tree is <strong> <%= @booking.tree.price_per_night %></strong> <%= image_tag("acorn.svg", height: 20) %> </p>
         <p>Total price is <strong><%= (@booking.date_check_out-@booking.date_check_in).to_i * @booking.tree.price_per_night %>  <%= image_tag("acorn.svg", height: 20) %> </strong> </p>
+        <p>An email with the details of your reservation has ben sent to <%= current_user.email %></p>
       </div>
     </div>
   </div>
-  <%= link_to "Back to search", root_path %>
+  <%= link_to "Back to search", root_path, class: "btn-medium" %>
+  <%= link_to "My Dashboard", dashboard_path, class: "btn-medium" %>
 </div>
