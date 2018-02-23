@@ -21,7 +21,7 @@ user_custom = User.create(email: "arda@gmail.com", password: "123456")
 
 p "creating 100 new trees"
 
-1.upto(100) do |i|
+1.upto(20) do |i|
 	Tree.create!(
 		address: Faker::Address.country,
 		description: Faker::Lorem.sentence,
