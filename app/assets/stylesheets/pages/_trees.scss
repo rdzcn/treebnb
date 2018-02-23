@@ -11,6 +11,7 @@
     justify-items: center;
     #map {
         box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        height: 100vh !important;
     }
     .index-search {
         grid-row-gap: 10px;
