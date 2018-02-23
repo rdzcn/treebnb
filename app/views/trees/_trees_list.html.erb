@@ -1,17 +1,17 @@
 <% trees.each do |tree| %>
   <div class="index-search-result">
       <% if tree.photos.first %>
-      <div class="result-image" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%), url('<%= cl_image_path tree.photos.first.path, width: 300, height: 200, crop: :fit %>');">
+      <div class="result-image" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%), url('<%= cl_image_path tree.photos.first.path, width: 200, height: 150, crop: :fit %>');">
       </div>
       <% end %>
       <div class="result-title">
         <p><%= link_to "#{tree.title}", tree_path(tree) %></p>
       </div>
-      <div class="result-address">
-        <p><%= tree.address.truncate(25) %></p>
+      <div class="result-location">
+        <p><%= tree.location.truncate(25) %></p>
       </div>
       <div class="result-description">
-        <p><%= tree.description %></p>
+        <p><%= tree.description.truncate(140) %></p>
       </div>
       <div class="result-avatar">
         <img src="http://i.pravatar.cc/75?u=<%= rand(20..500) %>" alt="">
