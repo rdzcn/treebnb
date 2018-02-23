@@ -5,7 +5,10 @@
       </div>
       <% end %>
       <div class="result-title">
-        <p><%= link_to "#{tree.address}", tree_path(tree) %></p>
+        <p><%= link_to "#{tree.title}", tree_path(tree) %></p>
+      </div>
+      <div class="result-description">
+        <p><%= tree.address %></p>
       </div>
       <div class="result-description">
         <p><%= tree.description %></p>
@@ -15,7 +18,7 @@
         <%#= cl_image_tag current_user.avatar, width: 100, height: 100, radius: :max %>
       </div>
       <div class="result-price">
-        <p>price: <%= tree.price_per_night %>ꔠ</p>
+        <p>Price/night <%= tree.price_per_night %> <%= image_tag("acorn.svg", height: 20) %></p>
       </div>
       <div class="result-review">
         <p> <% a=rand()+(6..9).to_a.sample %>

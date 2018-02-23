@@ -20,7 +20,7 @@
  				<h3><%= @tree.description %> </h3>
  				<p> Location: <%= @tree.address %></p>
  				<p> Capacity: <%= @tree.capacity %> <i> <small> squirrels </small> </i></p>
- 				<p> Price / night: <%= @tree.price_per_night %><i> <small>  corn-bits </small>  </i></p>
+ 				<p> Price / night: <%= @tree.price_per_night %><i> <small> <%= image_tag("acorn.svg", height: 20) %></small>  </i></p>
  				<%= link_to "book", new_tree_booking_path(@tree), class: "btn btn-success" %>
 
  			</div>
