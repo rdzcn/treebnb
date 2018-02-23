@@ -46,7 +46,7 @@
                 align-self: center;
                 a {
                     color: black;
-                    font-size:25px;
+                    font-size:16px;
                     opacity: 0.7;
                     font-weight: bold;
                     &:hover {
@@ -56,9 +56,8 @@
             }
             .result-description {
                 align-self: start;
-                a {
+                p {
                   padding-bottom: 5px;
-
                 }
             }
             .result-review {
@@ -68,7 +67,7 @@
                 p {
                     font-size: 24px;
                     font-weight: bold;
-                    padding: 16px 16px;
+                    padding: 8px 8px;
                 }
             }
             .result-price {
@@ -100,6 +99,8 @@
     grid-area: image;
     border-radius: 3%;
     max-height:190px;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .result-title {
     grid-area: title;
