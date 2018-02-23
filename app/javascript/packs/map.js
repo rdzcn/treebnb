@@ -30,17 +30,18 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
 
 
   function handleMapChange(e) {
-    const bounds = map.getBounds();
-    const ne = bounds.getNorthEast(); // top-left
-    const sw = bounds.getSouthWest(); // bottom-right
-    const minLat = ne.lat();
-    const maxLat = sw.lat();
-    const minLng = sw.lng();
-    const maxLng = ne.lng();
+    var bounds = map.getBounds();
+    console.log(bounds)
+    var ne = bounds.getNorthEast(); // top-left
+    var sw = bounds.getSouthWest(); // bottom-right
+    var minLat = ne.lat();
+    var maxLat = sw.lat();
+    var minLng = sw.lng();
+    var maxLng = ne.lng();
 
-    const treesPath = mapElement.dataset.treesPath;
-    const treeFilters = mapElement.dataset.treesFilter;
-    const data = {
+    var treesPath = mapElement.dataset.treesPath;
+    var treeFilters = mapElement.dataset.treesFilter;
+    var data = {
       tree_filters: treeFilters,
       minLat: minLat,
       maxLat: maxLat,

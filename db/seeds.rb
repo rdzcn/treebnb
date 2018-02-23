@@ -21,7 +21,7 @@ user_custom = User.create(email: "arda@gmail.com", password: "123456")
 cities = ["Rudi-Dutschke-Straße, Berlin", "Fritz-Schloß-Park, Berlin", "Mauerpark, Berlin"]
 # cities = %w(Berlin Paris Havana Oslo London Shanghai Moscow Toronto York Madrit Amsterdam Prague)
 
-p "creating 100 new trees"
+p "creating 20 new trees"
 
 
 
