@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def dashboard
+    @bookings = Booking.where(user_id: current_user.id).order(date_check_in: :asc)
     @trees = Tree.where(user_id: current_user.id)
     authorize current_user
   end
