@@ -1,16 +1,17 @@
-<div class="text-center">
+<div class="text-center wrapper-new">
   <h2>Add your lovely tree</h2>
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
         <%=  simple_form_for @tree do |f|%>
+
+      <!--   <%#= f.input :photo_cache, as: :hidden %> -->
         <%= f.input :location, label: false, placeholder: "Enter name of the city" %>
         <%= f.input :address, label: false, placeholder: "Enter full address of your tree" %>
         <%= f.input :description, label: false, placeholder: "Enter description" %>
       <%= f.input :capacity, label: false, placeholder: "How many squirrels can stay here?" %>
       <%= f.input :price_per_night, label: false, placeholder: "Price per night" %>
       <%= f.input :photos, as: :attachinary %>
-      <!--   <%#= f.input :photo_cache, as: :hidden %> -->
 
       <%= f.button :submit, "Add your tree", class: "btn-success" %>
       <% end %>
