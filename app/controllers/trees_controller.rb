@@ -34,73 +34,75 @@ class TreesController < ApplicationController
 
   def update_trees
     skip_authorization
-    @trees = Tree.search(min_lat: params["minLat"], max_lat: params["maxLat"], min_lng: params["minLng"], max_lng: params["maxLng"] )
+    # @trees = Tree.last(10)
+    @trees = Tree.search(min_lat: params["minLat"].to_f - 2, max_lat: params["maxLat"].to_f + 2, min_lng: params["minLng"].to_f - 2, max_lng: params["maxLng"].to_f + 2)
     
-    Rails.logger.info @trees.map(&:latitude)
     respond_to do |format|
       format.html { render 'trees/index' }
       format.js
     end
-  end
 
-
-  def show
-    @tree = Tree.find(params[:id])
-    authorize @tree
-    if @tree.latitude && @tree.longitude
-      @markers = [{
-        lat: @tree.latitude,
-        lng: @tree.longitude
-        }]
-      end
 
     end
 
-    def new
-      @tree = Tree.new
-      authorize @tree
-    end
 
-    def create
-      @tree = Tree.new(tree_params)
-      @tree.user = current_user
-      authorize @tree
-      if @tree.save
-        redirect_to tree_path(@tree)
-      else
-        render :new
-      end
-    end
-
-    def edit
-      set_tree
-      authorize @tree
-    end
-
-    def update
-      @tree.update(tree_params)
-      authorize @tree
-      redirect_to tree_path(@tree)
-    end
-
-    def destroy
-      set_tree
-      @tree.destroy
-      authorize @tree
-      redirect_to trees_path
-    end
-
-    private
-
-    def set_tree
+    def show
       @tree = Tree.find(params[:id])
-    end
+      authorize @tree
+      if @tree.latitude && @tree.longitude
+        @markers = [{
+          lat: @tree.latitude,
+          lng: @tree.longitude
+          }]
+        end
 
-    def tree_params
-      params.require(:tree).permit(:location, :price_per_night, :avalable, :capacity, :description, :address, photos: [])
-    end
+      end
 
-  end
+      def new
+        @tree = Tree.new
+        authorize @tree
+      end
+
+      def create
+        @tree = Tree.new(tree_params)
+        @tree.user = current_user
+        authorize @tree
+        if @tree.save
+          redirect_to tree_path(@tree)
+        else
+          render :new
+        end
+      end
+
+      def edit
+        set_tree
+        authorize @tree
+      end
+
+      def update
+        @tree.update(tree_params)
+        authorize @tree
+        redirect_to tree_path(@tree)
+      end
+
+      def destroy
+        set_tree
+        @tree.destroy
+        authorize @tree
+        redirect_to trees_path
+      end
+
+      private
+
+      def set_tree
+        @tree = Tree.find(params[:id])
+      end
+
+      def tree_params
+        params.require(:tree).permit(:location, :price_per_night, :avalable, :capacity, :description, :address, photos: [])
+      end
+
+    end
 
 
 
