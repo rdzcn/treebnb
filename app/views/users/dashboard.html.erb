@@ -8,11 +8,11 @@
   <div class="bookings-header">
     <h1>My Bookings</h1>
   </div>
-  <% current_user.bookings.each do |tree| %>
+  <% current_user.bookings.each do |booking| %>
   <div class="panel panel-default">
-    <div class="panel-heading style="height: 46px;"><%= link_to tree.tree.description, tree_booking_path(tree.tree, tree.tree.user) %></div>
+    <div class="panel-heading style="height: 46px;"><%= link_to booking.tree.description, tree_booking_path(booking.tree.id, booking.id) %></div>
     <div class="panel-body" style="height: 55px;">
-      <p>Check in: <%= tree.date_check_in %> , Check out: <%= tree.date_check_out %>. Total price: <%= tree.total_price %></p>  </div>
+      <p>Check in: <%= booking.date_check_in %> , Check out: <%= booking.date_check_out %>. Total price: <%= booking.total_price %></p>  </div>
   </div>
   <% end %>
 </div>
