@@ -1,0 +1,10 @@
+.main-container {
+	display: flex;
+}
+
+#map {
+	flex: 0 0 1fr;
+	height: 100vh;
+	position: sticky !important; /* !important to override Gmaps inline CSS */
+	top: 0 !important;
+}
